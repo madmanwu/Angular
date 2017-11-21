@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="main">
+    <div class="box">
+        <div class="top">
+            <span>登录名</span><input type="text" ng-model="login"/>
+            <span>真实姓名</span><input type="text" ng-model="name"/>
+            <span>状态</span><input type="text" ng-model="state"/>
+            <span>公司名称</span><input type="text" ng-model="commany"/>
+            <button ng-click="find()">查询</button>
+        </div>
+        <table class="tab">
+                <td>选择</td>
+                <td>登录名</td>
+                <td>真实姓名</td>
+                <td>状态</td>
+                <td>公司名称</td>
+                <td>操作</td>
+            </thead>
+            <tbody>
+                <tr class="tit content" ng-repeat="item in data.value|filter:(login&&name&&state&&commany)||(login&&name&&state)||(login&&name)||login">
+                    <td><input type="checkbox"/></td>
+                    <td>{{item.login}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.state}}</td>
+                    <td>{{item.commany}}</td>
+                    <td><a href="javascript:;" del>删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="chang">
+            <a href="javascript:;" ng-click="all()">全选</a>/
+            <a href="javascript:;" ng-click="fan()">反选</a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.js"></script>
+<script type="text/javascript">
+    angular.module('app', ['ui.router'])
+            .controller('main', ['$scope', 'http', function($scope, http){
+                $scope.data = http.getDate();
+                $scope.find = function(){
+                    $scope.rank = $scope.login;
+                }
+                $scope.all=function(){
+                    var input=angular.element(document.querySelectorAll(".content input"));
+                    var len=input.length;
+                    for(var i=0;i<len;i++){
+                        if(!input[i].checked){
+                            input[i].checked=true;
+                        }
+                    }
+                }
+                $scope.fan=function(){
+                    var input=angular.element(document.querySelectorAll(".content input"));
+                    var len=input.length;
+                    for(var i=0;i<len;i++){
+                        if(input[i].checked){
+                            input[i].checked=false;
+                        }else{
+                            input[i].checked=true;
+                        }
+                    }
+                }
+            }])
+            .service("http",function($http,$q){
+                var defer=$q.defer();
+                this.getDate=function(){
+                    $http({
+                        url:"http://localhost:8888"
+                    }).then(function(result){
+                        defer.resolve(result.data)
+                    },function(err){
+                        defer.reject(err);
+                    })
+                    return defer.promise.$$state;
+                }
+            })
+            .directive("del",function(){
+                return{
+                    restrict:"ECMA",
+                    link:function(scope,ele,attr){
+                        ele.on("click",function(){
+                            $(this).parents("tr").remove();
+                        })
+                    }
+                }
+            })
+</script>
+</html>

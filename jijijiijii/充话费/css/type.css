@@ -1,0 +1,150 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+body {
+  font-size: .12rem; }
+
+header {
+  height: .35rem;
+  background: #ffffff;
+  line-height: .35rem;
+  position: relative; }
+  header i {
+    position: absolute;
+    left: .1rem;
+    color: #f67300;
+    top: .06rem; }
+  header p {
+    text-align: center;
+    font-size: .16rem;
+    color: #111111; }
+
+section {
+  flex: 1;
+  background: #f7f8f9;
+  position: relative; }
+  section .list {
+    background: #ffffff;
+    height: .38rem;
+    display: flex;
+    border-bottom: 1px solid #f0f0f1; }
+    section .list li {
+      flex: 1;
+      text-align: center;
+      color: #aaaaaa;
+      line-height: .37rem; }
+    section .list .active {
+      color: #f89210;
+      border-bottom: 1px solid #fa981b; }
+  section .tel {
+    height: .5rem;
+    padding: .1rem .2rem;
+    position: relative; }
+    section .tel i {
+      position: absolute;
+      color: #fab257;
+      right: .3rem;
+      top: .13rem; }
+    section .tel input {
+      width: 100%;
+      height: .27rem;
+      border: 1px solid #eeeeee;
+      background: #ffffff;
+      padding-left: .08rem; }
+    section .tel ::-webkit-input-placeholder {
+      font-size: .11rem;
+      color: #adadad; }
+  section .mid .tit {
+    line-height: .2rem;
+    color: #202020;
+    font-size: .11rem;
+    padding-left: .2rem;
+    position: relative; }
+    section .mid .tit span {
+      position: absolute;
+      left: .04rem;
+      top: .03rem;
+      width: .04rem;
+      height: .15rem;
+      background: #f68300; }
+  section .mid .con {
+    height: .48rem;
+    padding: .07rem .2rem;
+    display: flex;
+    text-align: center; }
+    section .mid .con li {
+      width: 45%;
+      background: #eaeaea;
+      border: 1px solid #dbdbdb;
+      color: #515151;
+      height: .3rem;
+      line-height: .3rem;
+      margin-left: 1%;
+      margin-right: 5%;
+      position: relative;
+      overflow: hidden; }
+      section .mid .con li span {
+        position: absolute;
+        width: .2rem;
+        height: .2rem;
+        line-height: .25rem;
+        background: #f88e00;
+        right: -.1rem;
+        top: -.1rem;
+        color: #fff;
+        transform: rotate(45deg);
+        display: none; }
+    section .mid .con .check {
+      background: #ffffff;
+      border-color: #f9cf99;
+      color: #f78200; }
+      section .mid .con .check span {
+        display: block; }
+  section .mid .other li {
+    width: 30%; }
+  section .btn {
+    position: absolute;
+    bottom: 0;
+    height: .9rem;
+    width: 100%; }
+    section .btn p {
+      margin-bottom: .05rem;
+      text-align: center; }
+    section .btn .price {
+      color: #393a3a;
+      font-size: .14rem; }
+      section .btn .price span {
+        color: #f87300; }
+    section .btn .sale {
+      color: #272828; }
+    section .btn .button {
+      padding-left: .2rem;
+      padding-right: .2rem; }
+      section .btn .button span {
+        display: inline-block;
+        width: 100%;
+        height: .32rem;
+        line-height: .32rem;
+        background: #f88b00;
+        color: #fff;
+        border-radius: 10px; }
+  section .dialog {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -.7rem;
+    text-align: center; }
+    section .dialog p {
+      display: inline-block;
+      width: 65%;
+      height: .45rem;
+      background: #666666;
+      opacity: 0.8;
+      border-radius: 10px;
+      color: #f9f9f9;
+      line-height: .45rem; }
+
+/*# sourceMappingURL=type.css.map */

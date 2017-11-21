@@ -1,0 +1,190 @@
+body {
+  font-size: 0.12rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f7f8f9; }
+
+header {
+  background: #FFF;
+  line-height: 0.35rem;
+  position: relative;
+  text-align: center; }
+  header i {
+    position: absolute;
+    left: 0.1rem;
+    top: 0.06rem;
+    color: #f67300; }
+  header span {
+    font-size: 0.16rem;
+    color: #111; }
+
+section {
+  flex: 1;
+  overflow-y: auto; }
+  section .list {
+    background: #FFF;
+    display: flex; }
+    section .list li {
+      color: #9e9e9e;
+      flex: 1;
+      text-align: center;
+      padding-bottom: 0.08rem; }
+    section .list .begin {
+      border-bottom: 0.02rem solid #f88b00;
+      color: #f88b00; }
+  section .search {
+    padding-left: 0.2rem;
+    padding-right: 0.3rem;
+    padding-top: 0.1rem; }
+    section .search .number {
+      border: 0.01rem solid #ebeced;
+      height: 0.28rem;
+      position: relative; }
+      section .search .number input {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        border-width: 0;
+        padding-left: 0.1rem; }
+      section .search .number i {
+        position: absolute;
+        right: 0.07rem;
+        top: 0.05rem;
+        font-size: 0.2rem;
+        color: #f88b00; }
+  section .choic {
+    padding-left: 0.05rem;
+    line-height: 0.36rem;
+    color: #000;
+    font-size: 0.1rem; }
+    section .choic .left {
+      display: inline-block;
+      width: 0.05rem;
+      height: 0.14rem;
+      background: #f88b00;
+      border-radius: 0.05rem; }
+    section .choic .right {
+      padding-left: 0.1rem; }
+  section .full {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    display: flex;
+    justify-content: space-between; }
+    section .full div {
+      text-align: center;
+      width: 100%;
+      line-height: 0.29rem;
+      border: 0.01rem solid #dbdbdb;
+      background: #e9e9e9;
+      position: relative; }
+      section .full div span {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: #f88b00 #f88b00 transparent transparent;
+        border-width: 0.1rem 0.1rem 0.1rem 0.1rem;
+        display: none; }
+        section .full div span i {
+          color: #fff;
+          position: absolute;
+          top: -0.1rem;
+          right: -0.1rem; }
+    section .full div:last-child {
+      margin-left: 0.08rem; }
+    section .full .active {
+      background: #FFF;
+      border: 0.01rem solid #f88b00; }
+      section .full .active span {
+        display: block; }
+  section .money {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    display: flex;
+    justify-content: space-between; }
+    section .money div {
+      text-align: center;
+      width: 100%;
+      line-height: 0.29rem;
+      border: 0.01rem solid #dbdbdb;
+      background: #e9e9e9;
+      position: relative; }
+      section .money div span {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: #f88b00 #f88b00 transparent transparent;
+        border-width: 0.1rem 0.1rem 0.1rem 0.1rem;
+        display: none; }
+        section .money div span i {
+          color: #fff;
+          position: absolute;
+          top: -0.1rem;
+          right: -0.1rem; }
+      section .money div .show {
+        display: block; }
+    section .money div:nth-child(2) {
+      margin-left: 0.08rem;
+      margin-right: 0.08rem; }
+    section .money .active {
+      background: #FFF;
+      border: 0.01rem solid #f88b00; }
+      section .money .active span {
+        display: block; }
+  section .last {
+    margin-top: 0.12rem;
+    padding-left: 0.2rem;
+    padding-right: 0.3rem; }
+    section .last input {
+      width: 100%;
+      height: 0.28rem;
+      padding-left: 0.08rem;
+      outline: none;
+      border-width: 0;
+      border: 0.01rem solid #e8e9e9; }
+  section .dialog {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 2rem;
+    width: 2.03rem;
+    color: #fff;
+    text-align: center;
+    line-height: 0.48rem;
+    border-radius: 0.08rem;
+    background: rgba(99, 99, 100, 0.5); }
+
+footer {
+  text-align: center; }
+  footer .max span {
+    color: #f88b00;
+    font-size: 0.16rem; }
+  footer .min {
+    font-size: 0.1rem; }
+  footer .btn {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    margin-top: 0.05rem;
+    margin-bottom: 0.08rem; }
+    footer .btn button {
+      background: #f88b00;
+      color: #FFF;
+      width: 100%;
+      height: 0.33rem;
+      outline: none;
+      border-width: 0;
+      border-radius: 0.05rem; }
+
+/*# sourceMappingURL=style1.css.map */

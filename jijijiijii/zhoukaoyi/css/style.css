@@ -1,0 +1,59 @@
+.box {
+  width: 1000px;
+  height: 690px;
+  border: 1px solid #ccc;
+  margin: 10px auto; }
+  .box .top {
+    width: 100%;
+    line-height: 50px;
+    padding: 0 10px;
+    box-sizing: border-box; }
+    .box .top input[type="search"] {
+      width: 400px;
+      height: 30px;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      margin: 0 10px;
+      outline: none; }
+    .box .top select {
+      width: 400px;
+      height: 30px;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      margin: 0 10px; }
+  .box .bottom {
+    width: 100%; }
+    .box .bottom .btn {
+      width: 100px;
+      height: 30px;
+      background: #0078e7;
+      color: #fff;
+      border: none;
+      margin-left: 20px; }
+    .box .bottom ul {
+      width: 100%;
+      padding: 0;
+      border: 1px solid #cbcbcb; }
+      .box .bottom ul li:nth-child(1) {
+        background: #e0e0e0; }
+      .box .bottom ul li {
+        display: -webkit-flex;
+        line-height: 45px;
+        border-bottom: 1px solid #cbcbcb; }
+        .box .bottom ul li .span {
+          color: #0000ff;
+          padding-right: 5px; }
+        .box .bottom ul li span {
+          -webkit-flex: 1;
+          text-align: center;
+          list-style: none; }
+          .box .bottom ul li span img {
+            padding-top: 10px; }
+          .box .bottom ul li span .btns {
+            border: none;
+            background: #fff;
+            outline: none; }
+          .box .bottom ul li span input {
+            width: 100px; }
+
+/*# sourceMappingURL=style.css.map */

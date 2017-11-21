@@ -1,0 +1,110 @@
+body {
+  font-size: 0.12rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+
+header {
+  display: flex;
+  background: #2ca2f9;
+  color: #fff;
+  justify-content: center;
+  padding-top: 0.08rem;
+  padding-bottom: 0.08rem; }
+  header .left {
+    position: absolute;
+    left: 0.08rem;
+    width: 1.02rem; }
+    header .left > span:first-child {
+      display: inline-block;
+      width: 0.22rem;
+      line-height: 0.22rem;
+      border: 0.02rem solid #FFF;
+      text-align: center;
+      border-radius: 50%; }
+    header .left > span:last-child {
+      font-size: 0.16rem;
+      padding-left: 0.05rem; }
+  header > .center {
+    text-align: center;
+    width: 0.82rem;
+    line-height: 0.26rem;
+    border: 0.01rem solid #FFF;
+    border-radius: 0.05rem; }
+  header > i {
+    width: 1.02rem;
+    position: absolute;
+    right: 0.08rem;
+    top: 0.16rem;
+    font-size: 0.18rem;
+    text-align: right; }
+
+section {
+  flex: 1;
+  overflow-y: auto; }
+  section .list {
+    display: flex;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    border-bottom: 0.01rem solid #fdfdfd; }
+    section .list li {
+      flex: 1;
+      text-align: center;
+      padding-top: 0.12rem;
+      padding-bottom: 0.12rem;
+      font-size: 0.14rem; }
+    section .list .active {
+      border-bottom: 0.02rem solid #269df5; }
+  section .banner {
+    height: 1.2rem;
+    text-align: center;
+    position: relative; }
+    section .banner img {
+      width: 100%;
+      height: 100%; }
+    section .banner .banner-pagination {
+      position: absolute;
+      top: 1.8rem;
+      display: inline-block;
+      margin-left: -0.4rem; }
+      section .banner .banner-pagination span {
+        margin-right: 0.08rem;
+        margin-left: 0.08rem; }
+  section .music {
+    margin-top: 1.2rem;
+    padding-left: 0.14rem;
+    font-size: 0.14rem; }
+    section .music .ge:first-child {
+      margin-top: -0.2rem; }
+    section .music .ge {
+      display: flex;
+      padding-right: 0.1rem;
+      justify-content: space-between;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+      border-bottom: 0.01rem solid #CCC; }
+  section .picture {
+    position: relative;
+    display: flex;
+    padding-left: 0.1rem;
+    border-bottom: 0.01rem solid #CCC; }
+    section .picture .left {
+      padding-top: 0.1rem;
+      padding-bottom: 0.1rem;
+      width: 0.77rem;
+      height: 0.77rem; }
+      section .picture .left img {
+        width: 100%; }
+    section .picture .right {
+      line-height: 0.8rem;
+      padding-left: 0.14rem; }
+    section .picture i {
+      position: absolute;
+      right: 0.1rem;
+      top: 0.35rem;
+      font-size: 0.16rem; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="controller">
+    <header>
+        <div class="left">
+            <i class="fa fa-angle-left f16"></i>
+            <span>返回</span>
+            <span>关闭</span>
+        </div>
+        <div class="tit">
+            【我在家家居】高品质
+        </div>
+        <div class="right">
+            <i class="fa fa-ellipsis-h f16"></i>
+        </div>
+    </header>
+    <section>
+        <div class="top">
+            <div class="loc">
+                <select name="" id="">
+                    <option value="">北京市</option>
+                </select>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="搜索品牌/单品/风格"  ng-focus="search()">
+            </div>
+            <div class="info">
+                <i class="fa fa-shopping-cart f16"></i>
+                <i class="fa fa-bell-o f16"></i>
+            </div>
+        </div>
+        <div class="content" ui-view>
+        </div>
+    </section>
+    <footer>
+        <ul>
+            <li ui-sref="home" ui-sref-active="active">
+                <i class="fa fa-home f14"></i>
+                <p>首页</p>
+            </li>
+            <li ui-sref="fenlei" ui-sref-active="active">
+                <i class="fa fa-star-o f14"></i>
+                <p>分类</p>
+            </li>
+            <li ui-sref="life" ui-sref-active="active">
+                <i class="fa fa-phone f14"></i>
+                <p>生活家</p>
+            </li>
+            <li ui-sref="me" ui-sref-active="active">
+                <i class="fa fa-user-o f14"></i>
+                <p>我的</p>
+            </li>
+        </ul>
+    </footer>
+    <div class="searchbox"></div>
+</body>
+<script src="./js/swiper.min.js"></script>
+<script type='text/javascript' src='js/jquery.js'></script>
+<script type='text/javascript' src='js/angular.min.js'></script>
+<script src="./js/angular-ui-router.js"></script>
+
+<script>
+var app=angular.module("app",["ui.router"]);
+    app.config(function($stateProvider,$urlRouterProvider){
+        $urlRouterProvider.otherwise("/home");
+        $stateProvider.state("home",{
+            url:"/home",
+            template:`<div class="banner">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="images/IMG_1545_02.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/IMG_1545_02.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/IMG_1545_02.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="msg">
+                        <span><i class="fa fa-check-circle-o"></i>品牌制造商直供</span>
+                        <span><i class="fa fa-check-circle-o"></i>七天退换终身维护</span>
+                        <span><i class="fa fa-check-circle-o"></i>线下真实体验</span>
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                    <div class="list">
+                        大牌制造商提供
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                    <dl class="bottom">
+                        <dt>
+                            <img src="images/IMG_1545_05.jpg" alt="">
+                        </dt>
+                        <dd>
+                            <img src="images/IMG_1545_07.jpg" alt="">
+                            <img src="images/IMG_1545_10.jpg" alt="">
+                        </dd>
+                    </dl>
+                `
+        })
+        .state("fenlei",{
+            url:"/fenlei",
+            template:`<div class="wrap" ng-init="click(data[0].value)">
+                <div class="left">
+                    <li ng-repeat="item in data" ng-click="click(item.value)" lis ng-class="{active:$first}">
+                        {{item.tit}}
+                    </li>
+                </div>
+                <div class="right">
+                    <li ng-repeat="item in subdata">
+                        <img ng-src="{{item}}" alt="">
+                    </li>
+                </div>
+                </div>`
+        })
+        .state("life",{
+            url:"/life",
+            template:`<h2>生活家</h2>`
+        })
+        .state("me",{
+            url:"/me",
+            template:`<h2>我的</h2>`
+        })
+    })
+    .directive("lis",function(){
+        return {
+            restrict:"EMA",
+            link:function(scope,ele,attr){
+                ele.on("click",function(){
+                    $(this).addClass("active").siblings().removeClass("active");
+                })
+            }
+        }
+    })
+    .directive("searchbox",function(){
+        return {
+            restrict:"ECMA",
+            template:`<div class="top">
+                    <div class="left"><input type="text" placeholder="搜索品牌/单品/风格"></div>
+                    <div class="right" ng-click="cancle()">取消</div>
+                </div>
+                <div class="remen">
+                    热门搜索
+                </div>
+                <div class="message">
+                    <span>北欧风</span>
+                    <span>设计</span>
+                    <span>简约</span>
+                    <span>现货</span>
+                    <span>床垫</span>
+                    <span>真皮沙发</span>
+                    <span>北美黑胡桃</span>
+                    <span>实木餐桌</span>
+                    <span>美式乡村</span>
+                    <span>欧式</span>
+                </div>`
+        }
+    })
+    app.controller("controller",function($scope){
+        $scope.data=[
+            {
+                tit:"风格",
+                value:["images/IMG_1550_03.jpg","images/IMG_1550_05.jpg","images/IMG_1550_07.jpg","images/IMG_1550_09.jpg"]
+            },
+            {
+                tit:"空间",
+                value:["images/IMG_1550_09.jpg","images/IMG_1550_05.jpg","images/IMG_1550_07.jpg","images/IMG_1550_03.jpg"]
+            },
+            {
+                tit:"品类",
+                value:["images/IMG_1550_05.jpg","images/IMG_1550_03.jpg","images/IMG_1550_07.jpg","images/IMG_1550_09.jpg"]
+            }
+        ]
+        $scope.click=function(value){
+            $scope.subdata=value;
+        }
+        $scope.search=function(){
+            $(".searchbox").addClass("tops");
+        }
+        $scope.cancle=function(){
+            $(".searchbox").removeClass("tops");
+        }
+    })
+    setTimeout(function(){
+        new Swiper(".swiper-container",{
+            autoplay:1000,
+            loop:true
+        })
+    },400)
+</script>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="main">
+
+<section ui-view>
+    
+</section>
+<footer>
+    <ul>
+        <li ui-sref="home" ui-sref-active="active">
+            <i class="fa fa-home f16"></i>
+            <p>首页</p>
+        </li>
+        <li ui-sref="service" ui-sref-active="active">
+            <i class="fa fa-star-o f16"></i>
+            <p>服务</p>
+        </li>
+        <li ui-sref="num" ui-sref-active="active">
+            <i class="fa fa-phone f16"></i>
+            <p>小号</p>
+        </li>
+        <li ui-sref="shop" ui-sref-active="active">
+            <i class="fa fa-trello f16"></i>
+            <p>商城</p>
+        </li>
+        <li ui-sref="me" ui-sref-active="active">
+            <i class="fa fa-user-o f16"></i>
+            <p>我</p>
+        </li>
+    </ul>
+</footer>
+
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.js"></script>
+<script type="text/javascript">
+    angular.module('app', ['ui.router'])
+        .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+            $urlRouterProvider.otherwise('/home');
+            $stateProvider
+            .state('home', {
+                url: '/home',
+                template: `<div class="img">
+                                <img src="images/1_02.jpg" alt="">
+                            </div>
+                            <div class="phone">
+                                <a href="chongzhi.html"><i class="fa fa-tablet"></i><span>去充值</span></a>
+                            </div>
+
+                            <ul class="list">
+                                <li>
+                                    <img src="images/1_05.jpg" alt="">
+                                    <p>大三元</p>
+                                </li>
+                                <li>
+                                    <img src="images/1_10.jpg" alt="">
+                                    <p>不限量套餐</p>
+                                </li>
+                                <li>
+                                    <img src="images/1_15.jpg" alt="">
+                                    <p>流量包</p>
+                                </li>
+                                <li>
+                                    <img src="images/1_12.jpg" alt="">
+                                    <p>国际漫游</p>
+                                </li>
+                                <li>
+                                    <img src="images/1_07.jpg" alt="">
+                                    <p>星级服务</p>
+                                </li>
+                            </ul>
+                            <div class="banner">
+                                <img src="images/1_22.jpg" alt="">
+                            </div>
+                `
+            })
+            .state('service', {
+                url: '/service',
+                template:`
+                    <div class="banner">
+                        <img src="images/1_22.jpg" alt="">
+                    </div>`
+            })
+            .state('num', {
+                url: '/num',
+                template:`<div class="banner">
+                        <img src="images/1_02.jpg" alt="">
+                    </div>
+                   `
+            })
+            .state('shop', {
+                url: '/shop',
+                template:`
+                    <ul class="list">
+                        <li>
+                            <img src="images/1_05.jpg" alt="">
+                            <p>大三元</p>
+                        </li>
+                        <li>
+                            <img src="images/1_10.jpg" alt="">
+                            <p>不限量套餐</p>
+                        </li>
+                        <li>
+                            <img src="images/1_15.jpg" alt="">
+                            <p>流量包</p>
+                        </li>
+                        <li>
+                            <img src="images/1_12.jpg" alt="">
+                            <p>国际漫游</p>
+                        </li>
+                        <li>
+                            <img src="images/1_07.jpg" alt="">
+                            <p>星级服务</p>
+                        </li>
+                    </ul>
+                   `
+            })
+            .state('me', {
+                url: '/me',
+                template:`
+                    <div class="banner">
+                        <img src="images/1_22.jpg" alt="">
+                    </div>`
+            })
+        }])
+        .controller('main', ['$scope', function($scope){
+            // $scope.fn = function(){
+
+            // }
+        }])
+</script>
+</html>

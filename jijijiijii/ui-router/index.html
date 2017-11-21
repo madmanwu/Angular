@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="controller">
+    <header>
+        <i class="fa fa-list f16"></i>
+        <div class="search">
+            <input type="text" placeholder="搜索音乐、歌词、电台">
+        </div>
+        <i class="fa fa-signal f16" ng-click="dialog()"></i>
+    </header>
+    <section ui-view>
+
+    </section>
+    <footer>
+        <ul>
+            <li ui-sref="findmusic" ui-sref-active="active">
+                <i class="fa fa-home f16"></i>
+                <p>发现音乐</p>
+            </li>
+            <li ui-sref="mymusic" ui-sref-active="active">
+                <i class="fa fa-music f16"></i>
+                <p>我的音乐</p>
+            </li>
+            <li ui-sref="friend" ui-sref-active="active">
+                <i class="fa fa-male f16"></i>
+                <p>朋友</p>
+            </li>
+            <li ui-sref="me" ui-sref-active="active">
+                <i class="fa fa-user-o f16"></i>
+                <p>账号</p>
+            </li>
+        </ul>
+    </footer>
+    <div class="dialog" ng-show="show" ng-click="hide()">
+        <img src="images/dialog.png" alt="">
+    </div>
+</body>
+<script type='text/javascript' src='js/swiper.min.js'></script>
+
+<script type='text/javascript' src='js/angular.min.js'></script>
+<script src="./js/angular-ui-router.js"></script>
+<script>
+var app=angular.module("app",["ui.router"]);
+    app.config(function($stateProvider,$urlRouterProvider){
+        $urlRouterProvider.otherwise("/findmusic");
+        $urlRouterProvider.when("/findmusic","/findmusic/like");
+        $stateProvider.state("findmusic",{
+            url:"/findmusic",
+            template:`
+            <div class="list">
+                <li ui-sref="findmusic.like" ui-sref-active="click">个性推荐</li>
+                <li ui-sref="findmusic.music" ui-sref-active="click">歌单</li>
+                <li ui-sref="findmusic.diantai" ui-sref-active="click">主播电台</li>
+                <li ui-sref="findmusic.paihang" ui-sref-active="click">排行榜</li>
+            </div>
+           <div ui-view></div>
+            `
+        })
+        .state("findmusic.like",{
+            url:"/like",
+            template:`<div class="banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/banner.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/banner.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/banner.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/banner.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>`
+        })
+        .state("findmusic.music",{
+            url:"/music",
+            template:"<h4>歌单</h4>"
+        })
+        .state("findmusic.diantai",{
+            url:"/diantai",
+            template:"<h4>主播电台</h4>"
+        })
+        .state("findmusic.paihang",{
+            url:"/paihang",
+            template:"<h4>排行榜</h4>"
+        })
+        $stateProvider.state("mymusic",{
+            url:"/mymusic",
+            template:"<h2>我的音乐</h2>"
+        })
+        $stateProvider.state("friend",{
+            url:"/friend",
+            template:"<h2>朋友</h2>"
+        })
+        $stateProvider.state("me",{
+            url:"/me",
+            template:"<h2>账号</h2>"
+        })
+    })
+    app.controller("controller",function($scope,$timeout){
+        $scope.dialog=function(){
+            $scope.show=true;
+        }
+        $scope.hide=function(){
+           $scope.show=false;
+        }
+    })
+    setTimeout(function(){
+        var swiper=new Swiper(".swiper-container",{
+            autoplay:2000,
+            loop:true
+        })
+    },400)
+
+</script>
+</html>

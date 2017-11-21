@@ -1,0 +1,74 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+body {
+  font-size: .12rem; }
+
+section {
+  flex: 1; }
+  section .banner {
+    width: 100%;
+    position: relative; }
+    section .banner img {
+      width: 100%; }
+    section .banner a {
+      position: absolute;
+      width: .5rem;
+      height: .5rem;
+      border-radius: 50%;
+      background: #ffffff;
+      top: 80%;
+      margin-top: -.25rem;
+      left: 50%;
+      margin-left: -.25rem;
+      text-align: center; }
+      section .banner a i {
+        padding-top: .1rem; }
+      section .banner a span {
+        display: block; }
+  section .list {
+    display: flex;
+    padding-top: .13rem;
+    padding-bottom: .13rem; }
+    section .list li {
+      flex: 1;
+      text-align: center; }
+      section .list li img {
+        width: .42rem;
+        height: .42rem; }
+      section .list li p {
+        font-size: .1rem;
+        color: #595959;
+        margin-top: .07rem; }
+    section .list li:nth-child(2) {
+      margin-top: .14rem; }
+    section .list li:nth-child(3) {
+      margin-top: .2rem; }
+    section .list li:nth-child(4) {
+      margin-top: .14rem; }
+
+footer {
+  height: .41rem;
+  background: #f6f6f6;
+  border-top: 1px solid #e2e3e3; }
+  footer ul {
+    display: flex; }
+    footer ul li {
+      flex: 1;
+      text-align: center; }
+      footer ul li i {
+        color: #7e7e7e;
+        padding-top: .03rem; }
+      footer ul li p {
+        color: #767676;
+        font-size: .1rem;
+        padding-top: .02rem; }
+    footer ul .active i {
+      color: #f96b00; }
+    footer ul .active p {
+      color: #f8a944; }
+
+/*# sourceMappingURL=style.css.map */

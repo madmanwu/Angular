@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <style>
+       html,body{
+           width: 100%;
+           height: 100%;
+           background: #fcdbce;
+       }
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .top{
+            height: 70px;
+        }
+       .top>ul{
+           width: 100%;
+           height: 70px;
+           display: flex;
+           text-align: center;
+           padding-top: 15px;
+       }
+       .top>ul>li{
+           height: 40px;
+           line-height: 40px;
+           background: #87d0d7;
+           color: #edf8f5;
+           border-radius: 10px;
+           display: inline-block;
+           width: 25%;
+           margin-left: 6%;
+       }
+       .top>ul>.bg{
+          background: red;
+       }
+       .top>ul>li>a{
+           display: block;
+       }
+       .main>.list{
+           display: flex;
+           text-align: center;
+           padding-left: 15px;
+           line-height: 30px;
+       }
+       .main>.list>li{
+           color: #61969d;
+           padding: 0 10px;
+       }
+       .con{
+           line-height: 30px;
+           border-top: 1px solid #d1d7cf;
+           display: flex;
+           text-align: center;
+       }
+       .con>span{
+           flex: 1;
+           color: #61969d;
+       }
+       .bottom{
+           height: 44px;
+       }
+       .bottom>ul{
+           display: flex;
+           text-align: center;
+           padding-top: 6px;
+       }
+       .bottom>ul>li{
+           height: 28px;
+           line-height: 28px;
+           border: 1px solid #609b9c;
+           color: #609b9c;
+           border-radius: 10px;
+           width: 20%;
+           margin-left: 10%;
+       }
+    </style>
+</head>
+<body ng-app="app">
+
+    <div ng-controller="controller">
+        <tab></tab>
+    </div>
+
+<script src="jquery.js"></script>
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="main">
+
+<header>
+    <p class="left"><i class="fa fa-angle-left"></i>返回</p>
+    <p class="middle">多宝娱</p>
+</header>
+<section>
+    <div class="top">
+        <span class="left"><i class="fa fa-arrow-left"></i></span>
+        <span class="middle">我的一元夺宝</span>
+    </div>
+    <ul class="list">
+        <li ui-sref="home" ui-sref-active="active">进行中</li>
+        <li ui-sref-active="active" ui-sref="about">已揭晓</li>
+        <li ui-sref-active="active" ui-sref="me">已中奖</li>
+    </ul>
+    <div class="line"></div>
+
+    <div class="img" ui-view>
+        <!-- <div class="top">
+            <img src="images/img.jpg" alt=""/>
+            <div class="in">
+                <p class="num">支持分数：100人次</p>
+
+                <p class="time">支持时间：2016-01-01 23:12:12</p>
+
+                <p class="man">中奖者：131****1234</p>
+
+                <p class="phone">中奖号码：123456789</p>
+                <p class="btn">
+                    <button>再次购买</button>
+                </p>
+            </div>
+        </div> -->
+    </div>
+</section>
+
+</body>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.js"></script>
+<script type="text/javascript">
+    angular.module("app", ['ui.router'])
+            .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+                $urlRouterProvider.otherwise("/home");
+                $stateProvider
+                        .state("home", {
+                            url: '/home',
+                            template: `
+                                <div class="top">
+                                    <img src="images/img.jpg" alt=""/>
+                                    <div class="in">
+                                        <p class="num">支持分数：100人次</p>
+
+                                        <p class="time">支持时间：2016-01-01 23:12:12</p>
+
+                                        <p class="man">中奖者：131****1234</p>
+
+                                        <p class="phone">中奖号码：123456789</p>
+                                        <p class="btn">
+                                            <button>再次购买</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            `
+                        })
+                        .state("about", {
+                            url: '/about',
+                            template: `
+                                <h1>已揭晓</h1>
+                            `
+                        })
+                        .state("me", {
+                            url: '/me',
+                            template: `
+                                <h1>已中奖</h1>
+                            `
+                        })
+            }])
+            .controller("main", ["$scope", function($scope){
+
+            }])
+</script>
+</html>

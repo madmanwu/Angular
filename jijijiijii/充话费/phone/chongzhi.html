@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style1.css"/>
+</head>
+<body ng-controller="main">
+<header>
+    <i class="fa fa-angle-left f16" onclick="history.go(-1)"></i>
+    <span>充值</span>
+</header>
+
+<section>
+    <ul class="list">
+        <li class="begin">手机话费</li>
+        <li>订流量包</li>
+        <li>固话充值</li>
+    </ul>
+    <div class="search">
+        <div class="number">
+            <input type="text" placeholder="请输入正确的手机号码" ng-model="phone"/>
+            <i class="fa fa-user-circle-o"></i>
+        </div>
+    </div>
+
+    <div class="choic">
+        <span class="left"></span>
+        <span class="right">选择方式</span>
+    </div>
+
+    <div class="full" id="choose">
+        <div class="active" ng-click="choose()">网银充值<span ng-click="click()"><i class="fa fa-check"></i></span></div>
+        <div ng-click="choose()">充值卡充话费<span><i class="fa fa-check"></i></span></div>
+    </div>
+
+    <div class="choic">
+        <span class="left"></span>
+        <span class="right">选择数额</span>
+    </div>
+
+    <div class="money" id="other">
+        <div ng-click="choose()">50元<span><i class="fa fa-check"></i></span></div>
+        <div class="active" ng-click="choose()">100元<span><i class="fa fa-check"></i></span></div>
+        <div ng-click="choose()">200元<span><i class="fa fa-check"></i></span></div>
+    </div>
+
+    <div class="last">
+        <input type="text" placeholder="自定义充值金额（5~500的整数）"/>
+    </div>
+
+    <div class="dialog" ng-show="display">
+
+    </div>
+</section>
+
+<footer>
+    <div class="max"><span>99.5</span> 元</div>
+    <div class="min">充值立享9.95折，自动到账</div>
+    <div class="btn">
+        <button ng-click="choose()">立即支付</button>
+    </div>
+</footer>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.js"></script>
+<script type="text/javascript">
+    angular.module('app', [])
+            .controller('main', ['$scope','$timeout' ,function ($scope, $timeout) {
+                angular.element(document.querySelectorAll(".list")).on("click", "li", function () {
+                    $(this).addClass("begin").siblings().removeClass("begin");
+                })
+                angular.element(document.querySelectorAll("#choose")).on("click", "div", function () {
+                    $(this).addClass("active").siblings().removeClass("active");
+
+                })
+                angular.element(document.querySelectorAll("#other")).on("click", "div", function () {
+                    $(this).addClass("active").siblings().removeClass("active");
+                })
+
+                // 检验手机号码
+                $scope.choose = function(){
+                    if(!$scope.phone){
+                        alert("请输入手机号码");
+                        return;
+                    }
+                    if(!/^1[34578]\d{9}$/.test($scope.phone)){
+                        $scope.display = true;
+                        $timeout(function(){
+                            $scope.display = false;
+                        }, 2000)
+                        return false;
+                    }else{
+                        $scope.display = false;
+                    }
+                }
+
+            }])
+
+
+            .directive("dialog", function () {
+                return {
+                    restrict: "ECMA",
+                    template: "亲，手机号码是11位哦，请检查"
+                }
+            })
+</script>
+</html>

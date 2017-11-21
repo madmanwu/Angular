@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="controller">
+    <div class="box">
+        <h4>个人信息确认：</h4>
+        <div class="info">
+            <div class="left">
+                <p>小叮当 <span>132*******12</span></p>
+                <p>{{address}}</p>
+                <p>邮编 100000</p>
+            </div>
+            <div class="right">
+                <span ng-click="click()">更换 <i class="fa fa-angle-right"></i></span>
+                
+                <div class="dialog" ng-class="class">
+                    <input type="text" placeholder="请输入收货地址" ng-model="newadd">
+                    <button ng-click="yes()">确定</button><button ng-click="err()">取消</button>
+                </div>
+            </div>
+        </div>
+        <div class="btn">确认</div>
+        <ul class="list">
+            <li ng-repeat="item in data.value" class='{{item.class}}'><p>{{item.time}}</p><span>{{item.msg}}</span><b></b></li>
+        </ul>
+    </div>
+</body>
+<!-- <script type='text/javascript' src='js/jquery.js'></script> -->
+<script type='text/javascript' src='js/angular.min.js'></script>
+<script>
+var app=angular.module("app",[]);
+    app.controller("controller",function($scope,http){
+        $scope.data=http.getDate();
+        $scope.address="北京市 朝阳区 建安门外大街 赛特大厦15层"
+        //console.log($scope.data)
+        $scope.click=function(){
+            $scope.class="show";
+        }
+        $scope.yes=function(){
+            $scope.address=$scope.newadd;
+            $scope.class="hide";
+        }
+        $scope.err=function(){
+            $scope.class="hide";
+        }
+    })
+    .service("http",function($http,$q){
+        var defer=$q.defer();
+        this.getDate=function(){
+            $http({
+                url:"./js/data.json"
+            }).then(function(result){
+                defer.resolve(result.data)
+            },function(err){
+                defer.reject(err);
+            })
+            return defer.promise.$$state;
+        }
+    })
+</script>
+</html>

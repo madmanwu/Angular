@@ -1,0 +1,64 @@
+.search{
+    width: 240px;
+}
+.search input{
+    outline: none;
+}
+.search button{
+    outline: none;
+    border-width:0;
+    background: n#CCC;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.connect{
+    width: 600px;
+    height: auto;
+    border: 1px solid #CCC;
+    margin-top: 5px;
+}
+.connect p{
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #CCC;
+    padding-left: 5px;
+    position: relative;
+}
+.connect p span:first-child{
+    position: absolute;
+    left: 5px;
+}
+.connect p span:last-child{
+    position: absolute;
+    right: 9px;
+}
+.connect p span i{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+    border-width: 5px 5px 0px 5px;
+}
+.connect p span .active{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: red transparent transparent transparent;
+    border-width: 5px 5px 0px 5px;
+}
+.connect p span .normal{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+    border-width: 5px 5px 0px 5px;
+}
+.connect p:first-child span{
+    cursor: pointer;
+}

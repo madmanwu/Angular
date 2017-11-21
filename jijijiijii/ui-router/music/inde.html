@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="main">
+
+<header>
+    <div class="left">
+        <span>K</span>
+        <span>酷狗音乐</span>
+    </div>
+    <div class="center">下载酷狗</div>
+    <i class="fa fa-search"></i>
+</header>
+<section>
+    <ul class="list">
+        <li ui-sref="new" ui-sref-active="active">新歌</li>
+        <li ui-sref="pai" ui-sref-active="active">排行</li>
+        <li ui-sref="music" ui-sref-active="active">歌单</li>
+        <li ui-sref="man" ui-sref-active="active">歌手</li>
+    </ul>
+    <ui-view></ui-view>
+</section>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.js"></script>
+<script type="text/javascript">
+    angular.module('app', ['ui.router'])
+            .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+                $urlRouterProvider.otherwise('/new')
+                $stateProvider
+                        .state('new', {
+                            url: '/new',
+                            template: `
+                                <div class="banner">
+                                    <div class="swiper-container">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide" ng-repeat="item in banner">
+                                                <img src="{{item.img}}" alt=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="banner-pagination swiper-pagination"></div>
+                                </div>
+                                <div class="music">
+                                    <div class="ge" ng-repeat="item in musics">
+                                        <span>{{item.music}}</span>
+                                        <span>
+                                            <i class="fa fa-download"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            `
+                        })
+                        .state('pai', {
+                            url: '/pai',
+                            template: `
+                                <div class="picture" ng-repeat="item in data">
+                                    <div class="left">
+                                        <img src="{{item.img}}" alt=""/>
+                                    </div>
+                                    <div class="right">
+                                       {{item.title}}
+                                    </div>
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                            `
+                        })
+                        .state('music', {
+                            url: '/music',
+                            template: `
+                                <h2>歌单</h2>
+                            `
+                        })
+                        .state('man', {
+                            url: '/man',
+                            template: `
+                                <h2>歌手</h2>
+                            `
+                        })
+            }])
+            .controller('main', ['$scope', function($scope){
+                $scope.data = [
+                    {
+                        'img': 'images/img/img1.jpg',
+                        'title': '酷狗飙升榜'
+                    },{
+                        'img': 'images/img/img2.jpg',
+                        'title': '酷狗TOP500'
+                    },{
+                        'img': 'images/img/img3.jpg',
+                        'title': '网络红歌榜'
+                    },{
+                        'img': 'images/img/img4.jpg',
+                        'title': 'DJ热歌榜'
+                    }
+                ];
+                $scope.musics = [
+                    {
+                        music: '田馥甄-当你（Live）'
+                    },{
+                        music: '韩寒、听懂小伙伴-在雨中【乘风破浪推广曲】'
+                    },{
+                        music: '张杰-三生三世【三生三世十里桃花主题曲】'
+                    },{
+                        music: 'EXID-上下'
+                    },{
+                        music: '魏晨-旅程'
+                    }
+                ];
+                $scope.banner = [
+                    {'img': 'images/banner/banner1.jpg'},
+                    {'img': 'images/banner/banner2.jpg'},
+                    {'img': 'images/banner/banner1.jpg'},
+                    {'img': 'images/banner/banner2.jpg'}
+                ]
+            }]);
+    setTimeout(function(){
+        new Swiper(".swiper-container",{
+            autoplay:1000,
+            loop:true,
+            pagination: '.swiper-pagination'
+        })
+    },400)
+</script>
+</html>

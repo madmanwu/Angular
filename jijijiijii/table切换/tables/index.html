@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="main">
+    <tab></tab>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript">
+    angular.module('app', [])
+            .controller('main' ,['$scope', 'http', function($scope, http){
+                var data = http.getData();
+                $scope.date = data;
+                $scope.click = function(val){
+                    $scope.subdate = val;
+                };
+                $scope.paixu = function(val){
+                    $scope.rank = val;
+                }
+            }])
+            .service('http', function($q, $http){
+                var defer = $q.defer();
+                this.getData = function(){
+                    $http({
+                        url: 'http://localhost:8081',
+                        method: 'POST'
+                    }).then(function(result){
+                        defer.resolve(result.data)
+                    }, function(error){
+                        throw new Error(error);
+                    });
+                    return defer.promise.$$state;
+                }
+            })
+            .directive("tab", function(){
+                return {
+                    restrict: 'ECMA',
+                    replace: true,
+                    template: `
+                    <div class="box">
+                        <ul class="list">
+                            <li ng-repeat="item in date.value" ng-click="click(item.value)" ng-class="{active:$first}">{{item.listname}}</li>
+                        </ul>
+                        <table>
+                            <thead>
+                                <td ng-click="paixu('pm')">排名</td>
+                                <td ng-click="paixu('bh')">编号</td>
+                                <td ng-click="paixu('xs')">选手</td>
+                                <td ng-click="paixu('qx')">取消关注</td>
+                                <td ng-click="paixu('count')">最终票数</td>
+                            </thead>
+                            <tr ng-repeat="item in subdate | orderBy:rank">
+                                <td>{{item.pm}}</td>
+                                <td>{{item.bh}}</td>
+                                <td>{{item.xs}}</td>
+                                <td>{{item.qx}}</td>
+                                <td>{{item.count}}</td>
+                            </tr>
+                        </table>
+                        <ul class="lists">
+                            <li>1-100</li>
+                            <li>101-200</li>
+                            <li>201-300</li>
+                        </ul>
+                    </div>
+                        `,
+                    link: function(scope, ele, attr){
+                        ele.on("click",".list li",function(){
+
+                            $(this).addClass("active").siblings().removeClass("active");
+                        })
+                    }
+                }
+
+            })
+</script>
+</html>

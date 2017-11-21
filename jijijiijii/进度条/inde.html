@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="main">
+
+<div class="box">
+    <div class="bars">
+        <div class="left">100元起投</div>
+        <div class="mid">
+             <p><span class="bar" par="par"></span></p>
+        </div>
+        <div class="right">
+            {{par}}
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/zepto.js"></script>
+<script type="text/javascript">
+    var app=angular.module("app",[]);
+    app.controller("main",function($scope,http){
+        // $scope.data=http.getData();
+        $scope.par="58%"
+    })
+    .directive("bar",function(){
+        return {
+            restrict:"ECMA",
+            scope:{
+                par:"="
+            },
+            link:function(scope,ele,attr){
+                ele.stop().animate({"width":scope.par},1000)
+            }
+        }
+    })
+    .service("http",function($http,$q){
+        var defer=$q.defer();
+    })
+</script>
+</html>

@@ -1,0 +1,39 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+.box{
+    width: 800px;
+    height: 500px;
+    border: 1px solid red;
+}
+.top{
+    margin: 10px;
+}
+.top input{
+    width: 100px;
+    margin-right: 10px;
+    outline: none;
+}
+.top button{
+    outline: none;
+    width: 50px;
+}
+table{
+    margin-top: 18px;
+    width: 100%;
+    border-collapse: collapse;
+}
+table thead{
+    background: #CCCCCC;
+}
+table tbody{
+    font-size: 12px;
+}
+table td{
+    text-align: center;
+}
+table tr{
+    line-height: 33px;
+    border-bottom: 1px solid #CCCCCC;
+}

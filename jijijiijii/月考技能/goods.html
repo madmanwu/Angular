@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="controller">
+	<header class="head">
+            <i class="fa fa-angle-left f14"></i>
+            <p>商品评价</p>
+            <i class="fa fa-external-link f14"></i>
+    </header>
+    <section class="gsec">
+    	<div class="area">
+    		<div class="spans gsp">
+    			<span>全部(5184)</span> <span>追加(206)</span> <span>有图(1068)</span><span>便宜(148)</span> <span>划算(81)</span> <span>物流很快(55)</span> <span>服务好(10)</span><span>态度好(7)</span> <span>良心(7)</span>
+    		</div>
+              <i ng-class="class" ng-click="click()" id="btn"></i>
+          </div>
+          <div id="gooslist" class="gooslist">
+
+            </div>
+    </section>
+     <footer>
+        <div class="foot-l">
+            <li>
+                <i class="fa fa-home f14"></i>
+                <p>首页</p>
+            </li>
+            <li>
+                <i class="fa fa-heart-o f14"></i>
+                <p>收藏</p>
+            </li>
+            <li class="active">
+                <i class="fa fa-comment-o f14"></i>
+                <p>客服</p>
+            </li>
+        </div>
+        <div class="foot-m">
+            <p>￥11.8</p>
+            <p>单独购买</p>
+        </div>
+        <div class="foot-r">
+            <p>￥8.8</p>
+            <p>一件拼单</p>
+        </div>
+    </footer>
+  <script type='text/javascript' src='js/jquery.js'></script>
+<script type='text/javascript' src='js/angular.min.js'></script>
+<script>
+    var app=angular.module("app",[]);
+
+        app.controller("controller",function($scope,http){
+        	$scope.class="fa fa-angle-down f14";
+        	var fg=true;
+        	$scope.click=function(){
+
+
+        		if(fg){
+        			$scope.class="fa fa-angle-up f14";
+        			$(".gsp").addClass("topa");
+        			fg=false;
+        		}else{
+        			$scope.class="fa fa-angle-down f14";
+        			$(".gsp").removeClass("topa");
+        			fg=true;
+        		}
+        	}
+        	$scope.data=http.getDate();
+        	console.log($scope.data)
+        })
+        .service("http",function($http,$q){
+        	var defer=$q.defer();
+        	this.getDate=function(){
+        		$http({
+        			url:"http://localhost:8800"
+        		}).then(function(result){
+        			defer.resolve(result.data)
+        		},function(err){
+        			defer.reject(err)
+        		})
+        		return defer.promise.$$state;
+        	}
+        })
+        .directive("gooslist",function(){
+        	return {
+        		restrict:"ECMA",
+        		template:`<li ng-repeat="item in data.value">
+                    <p class="tops">
+                        <img ng-src="{{item.url}}" alt="">
+                        <b>{{item.name}}</b>
+                        <span>{{item.time}}</span>
+                    </p>
+                    <p class="comm">{{item.msg}}</p>
+                    <span>{{item.buy}}</span>
+                </li>`
+        	}
+        })
+</script>
+</body>
+</html>

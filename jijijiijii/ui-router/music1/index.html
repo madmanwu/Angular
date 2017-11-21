@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="main">
+
+<header>
+    <div class="left">
+        <i class="fa fa-bars"></i>
+    </div>
+    <div class="middle">
+        <input type="text" placeholder="搜索音乐、歌词、电台"/>
+    </div>
+    <div class="right" ng-click="click()">
+        <i class="fa fa-bar-chart"></i>
+    </div>
+</header>
+<section>
+    <ul class="list">
+        <li class="active">个性推荐</li>
+        <li>歌单</li>
+        <li>主播电台</li>
+        <li>排行榜</li>
+    </ul>
+    <div class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/banner/banner1.jpg" alt=""/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/banner/banner2.jpg" alt=""/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/banner/banner3.jpg" alt=""/>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/banner/banner4.jpg" alt=""/>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination inde"></div>
+    </div>
+</section>
+<footer>
+    <ul>
+        <li class="active">
+            <i class="fa fa-free-code-camp
+            "></i>
+            <span>发现音乐</span>
+        </li>
+        <li>
+            <i class="fa fa-music
+            "></i>
+            <span>我的音乐</span>
+        </li>
+        <li>
+            <i class="fa fa-users
+            "></i>
+            <span>朋友</span>
+        </li>
+        <li>
+            <i class="fa fa-user-o
+            "></i>
+            <span>账号</span>
+        </li>
+    </ul>
+</footer>
+<div class="dialog" ng-show="show" ng-click="hide()">
+    <img src="images/img/img.png" alt="">
+</div>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.js"></script>
+<script type="text/javascript">
+    setTimeout(function(){
+        new Swiper(".swiper-container",{
+            loop: true,
+            autoplay: 1000,
+            pagination: '.swiper-pagination'
+        })
+    },400)
+    $("ul").on("click", "li", function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+    angular.module("app", [])
+            .controller("main", ["$scope", function($scope){
+                $scope.click = function(){
+                    $scope.show=true;
+                }
+                $scope.hide=function(){
+                    $scope.show=false;
+                }
+            }])
+</script>
+</html>

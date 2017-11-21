@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="controller">
+    <div class="box">
+        <div class="top">
+            search: <input type="search" ng-model="test"/>
+            Order by: <select class="select" ng-model="value">
+                        <option value="票数">票数</option>
+                        <option value="姓名">姓名</option>
+                    </select>
+        </div>
+        <div class="bottom">
+            <button class="btn">新增候选球员</button>
+            <ul></ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+</body>
+</html>

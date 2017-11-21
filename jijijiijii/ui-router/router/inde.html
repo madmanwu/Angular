@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="main">
+
+<header>
+    <i class="fa fa-arrow-left"></i>
+    <span>交易明细</span>
+</header>
+<section>
+    <ul class="list">
+        <li ui-sref="home" ui-sref-active="active">全部</li>
+        <li ui-sref="about" ui-sref-active="active">支出</li>
+        <li ui-sref="me" ui-sref-active="active">收入</li>
+    </ul>
+
+    <div class="line"></div>
+    <ui-view></ui-view>
+    <tab></tab>
+
+</section>
+
+</body>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-router.js"></script>
+<script type="text/javascript">
+    angular.module('app', ['ui.router'])
+            .controller('main', ['$scope', function($scope){
+
+            }])
+            .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+                $urlRouterProvider.otherwise('/home');
+                $stateProvider
+                        .state('home',{
+                            url: '/home',
+                            template: `
+                            <div class="box">
+                                <div>
+                                    <div class="left">
+                                        <p>支出</p>
+                                        <p>
+                                            <span>项目支持</span>
+                                            <span>《心里的声音》</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="right">
+                                        <p>1.000元</p>
+                                        <p>2016-01-01 12：:12</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="left">
+                                        <p style="background: blue">收入</p>
+                                        <p>
+                                            <span>项目退款</span>
+                                            <span>《心里的声音》</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="right">
+                                        <p style="color:  blue;">1.000元</p>
+                                        <p>2016-01-01 12：:12</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="left">
+                                        <p  style="background: blue">收入</p>
+                                        <p>
+                                            <span>项目收益</span>
+                                            <span>《心里的声音》</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="right">
+                                        <p style="color:  blue;">1.000元</p>
+                                        <p>2016-01-01 12：:12</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="left">
+                                        <p>支出</p>
+                                        <p>
+                                            <span>一元夺宝</span>
+                                            <span>《心里的声音》</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="right">
+                                        <p>1.000元</p>
+                                        <p>2016-01-01 12：:12</p>
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                        })
+                        .state('about',{
+                            url: '/about',
+                            template: `
+                                <div class="box">
+                            <div>
+                                <div class="left">
+                                    <p>支出</p>
+                                    <p>
+                                        <span>项目支持</span>
+                                        <span>《心里的声音》</span>
+                                    </p>
+                                </div>
+
+                                <div class="right">
+                                    <p>1.000元</p>
+                                    <p>2016-01-01 12：:12</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="left">
+                                    <p>支出</p>
+                                    <p>
+                                        <span>一元夺宝</span>
+                                        <span>《心里的声音》</span>
+                                    </p>
+                                </div>
+
+                                <div class="right">
+                                    <p>1.000元</p>
+                                    <p>2016-01-01 12：:12</p>
+                                </div>
+                            </div>
+                        </div>
+                            `
+                        })
+                        .state('me',{
+                            url: '/me',
+                            template: `
+                                <div class="box">
+                                <div>
+                                    <div class="left">
+                                        <p style="background: blue">收入</p>
+                                        <p>
+                                            <span>项目退款</span>
+                                            <span>《心里的声音》</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="right">
+                                        <p style="color:  blue;">1.000元</p>
+                                        <p>2016-01-01 12：:12</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="left">
+                                        <p  style="background: blue">收入</p>
+                                        <p>
+                                            <span>项目收益</span>
+                                            <span>《心里的声音》</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="right">
+                                        <p style="color:  blue;">1.000元</p>
+                                        <p>2016-01-01 12：:12</p>
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                        })
+            }])
+</script>
+</html>

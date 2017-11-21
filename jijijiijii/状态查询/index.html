@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing:border-box;
+		}
+		li{
+			list-style: none;
+		}
+		.box{
+			width: 600px;
+			height: 300px;
+			border: 1px solid red;
+			margin: 30px auto;
+		}
+		.top{
+			height: 40px;
+			padding-top: 10px;
+			padding-left: 5px;
+		}
+		.pro{
+			display: inline-block;
+			position: relative;
+		}
+		.pro>.search{
+			position: absolute;
+			bottom: -30px;
+			left: 0;
+			width: 100%;
+		}
+		.pro>.search>li{
+			line-height: 20px;
+			border: 1px solid red;
+		}
+		.tit{
+			height: 30px;
+			line-height: 30px;
+			background: #eee;
+			border-bottom: 1px solid #ddd;
+			padding-left: 10px;
+			font-size: 16px;
+		}
+		.list>li{
+			height: 40px;
+			line-height: 40px;
+			display: flex;
+			text-align: center;
+		}
+		.list>li>span{
+			flex:1;
+		}
+	</style>
+</head>
+<body ng-controller="controller">
+	<div class="box">
+		<div class="top">
+			<span>状态</span>
+			<select name="" id="">
+				<option value="">全部</option>
+			</select>
+			<span>名称</span>
+			<div class="pro">
+				<input type="text" ng-model="text">
+				<input type="button" value="查询" ng-click="click()">
+				<ul class="search" arr="arr">
+
+				</ul>
+			</div>
+
+		</div>
+		<div class="tit">列表</div>
+		<ul class="list">
+			<li><span>ID</span><span>名称</span><span>状态</span><span>序号</span><span>创建时间</span><span>操作</span></li>
+			<li ng-repeat="item in data.value"><span>{{item.id}}</span><span>{{item.name}}</span><span>{{item.state}}</span><span>{{item.num}}</span><span>{{item.time}}</span><span><a class="change">{{item.do[0]}}</a><a class="del">{{item.do[1]}}</a></span></li>
+		</ul>
+	</div>
+	<script src="jquery.js"></script>
+	<script src="angular.min.js"></script>
+	<script>
+	var app=angular.module("app",[]);
+	app.controller("controller",function($scope,http){
+		$scope.data=http.getDate();
+		var val=$scope.data;
+			$scope.arr=[];
+		$scope.click=function(){
+
+			if(!$scope.text) return;
+
+			for(var i=0;i<val.value.length;i++){
+				if(val.value[i].name.indexOf($scope.text)!=-1){
+					$scope.arr.push(val.value[i].name)
+				}
+			}
+			//console.log(arr)
+		}
+		angular.element(document.querySelectorAll(".list .del")).on("click",function(){
+			console.log($(this).parents("li"))
+		})
+	})
+	.service("http",function($http,$q){
+		var defer=$q.defer();
+		this.getDate=function(){
+			$http({
+				url:"./data.json"
+			}).then(function(result){
+				defer.resolve(result.data)
+			},function(err){
+				defer.reject(err)
+			})
+			return defer.promise.$$state;
+		}
+	})
+	.directive("del",function(){
+		return {
+			restrict:"ECMA",
+			link:function(scope,ele,attr){
+				ele.on("click",function(){
+					$(this).parents("li").remove();
+				})
+			}
+		}
+	})
+	.directive("search",function(){
+		return {
+			restrict:"ECMA",
+			scope:{
+				arr:"="
+			},
+			template:`<li ng-repeat="item in arr">{{item}}</li>`
+		}
+	})
+	</script>
+</body>
+</html>

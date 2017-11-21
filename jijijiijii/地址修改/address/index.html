@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            font-size: 12px;
+            width: 500px;
+            height: 500px;
+            border-top: 2px solid skyblue;
+            padding-left: 21px;
+        }
+        .sure{
+            color: #ccc;
+        }
+        .message{
+            margin-top: 10px;
+            width: 350px;
+            height: 130px;
+            border: 1px solid #CCC;
+            padding-left: 21px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .message p{
+            padding-top: 10px;
+        }
+        .name span{
+            padding-left: 47px;
+        }
+        .address span{
+            color: #ccc;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+        }
+        button{
+            width: 150px;
+            height: 40px;
+            outline: none;
+            border-width: 0;
+            color: #fff;
+            background: #999;
+            border-radius: 19px;
+            margin-top: 11px;
+        }
+        .swit{
+            padding-left: 31px;
+            padding-top: 15px;
+            position: relative;
+        }
+        .swit div{
+            border-left: 2px solid lawngreen;
+            margin-top: -12px;
+            height: 55px;
+            padding-left: 21px;
+        }
+        .swit div:last-child{
+            border: none;
+        }
+        .top{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: lawngreen;
+            display: inline-block;
+            position: absolute;
+            left: 27px;
+        }
+        .middle{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: lawngreen;
+            display: inline-block;
+            position: absolute;
+            left: 27px;
+        }
+        .bottom{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: lawngreen;
+            display: inline-block;
+            position: absolute;
+            left: 27px;
+        }
+        .wrap {
+            display: none;
+            background: skyblue;
+            width: 172px;
+            text-align: center;
+            position: absolute;
+            right: 0;
+        }
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+        .ipt{
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body ng-controller="main">
+<div class="box">
+    <p class="sure">个人信息确认：</p>
+    <div class="message">
+        <p class="name">小叮当 <span>132******12</span></p>
+        <p class="address">{{addre}}<span ng-click="click()">更换></span></p>
+
+        <div class="wrap" ng-class="class">
+            <input type="text" placeholder="请输入修改的地址"class="ipt" ng-model="newadd"/>
+            <input type="button" value="确认" ng-click="sure()">
+            <input type="button" value="取消" ng-click="error()">
+        </div>
+
+        <p class="email">邮编：100000</p>
+    </div>
+    <button>已确认</button>
+    <div class="swit">
+        <div>
+            <span class="top"></span>
+            <p>2016-01-01 12:15:16</p>
+
+            <p>确认信息</p>
+        </div>
+        <div>
+            <span class="middle"></span>
+            <p>等待发放奖品</p>
+        </div>
+        <div>
+            <span class="bottom"></span>
+            <p>2016-01-02 12:15:16</p>
+
+            <p>奖品已发放（快递单号：12345678900）</p>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript">
+    angular.module('app', [])
+           .controller('main', ['$scope', function($scope){
+                $scope.addre = '北京市 朝阳区 建国门外大街 赛特大厦15层';
+
+                $scope.click = function(){
+                    $scope.class = "show";
+                }
+                $scope.sure = function(){
+                    $scope.addre = $scope.newadd;
+                    $scope.class = "hide";
+                }
+                $scope.error = function(){
+                    $scope.class = "hide";
+                }
+           }])
+
+</script>
+</html>

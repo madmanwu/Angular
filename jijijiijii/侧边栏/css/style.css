@@ -1,0 +1,237 @@
+@import url(reset.css);
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box; }
+
+html, body, .wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+body {
+  font-size: 16px; }
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; }
+
+.mark {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  z-index: 13213553; }
+
+.left {
+  width: 65%;
+  height: 100%;
+  background: white; }
+
+.top {
+  height: 3.3rem;
+  background: #cb2a1e; }
+
+.right {
+  flex: 1;
+  height: 100%;
+  background: black;
+  opacity: .4; }
+
+header {
+  width: 100%; }
+  header i {
+    color: white; }
+
+.head {
+  position: absolute;
+  width: 100%;
+  height: 1rem;
+  display: flex;
+  padding: 0 .25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  z-index: 999; }
+
+.bg {
+  width: 100%;
+  height: 100%;
+  height: 1rem;
+  background: #ff6000;
+  position: absolute;
+  z-index: 998;
+  opacity: 0; }
+
+.banner {
+  height: 6.5rem;
+  position: relative;
+  z-index: 0; }
+  .banner img {
+    display: block;
+    width: 100%;
+    height: 100%; }
+
+section {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1.5; }
+
+.con {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: -2.8rem;
+  position: relative;
+  z-index: 1;
+  border-radius: .15rem; }
+
+.nav {
+  border-radius: .15rem;
+  height: .88rem;
+  display: flex; }
+  .nav a:nth-child(1) {
+    flex: 1;
+    height: .88rem;
+    line-height: .88rem;
+    text-align: center;
+    border-top-left-radius: .15rem;
+    opacity: 0.7;
+    color: white;
+    font-size: 13px;
+    background: black; }
+  .nav a:nth-child(2) {
+    flex: 1;
+    height: .88rem;
+    line-height: .88rem;
+    text-align: center;
+    opacity: 0.7;
+    color: white;
+    font-size: 13px;
+    background: black;
+    border-top-right-radius: .15rem; }
+  .nav a:nth-child(1).as {
+    background: white;
+    opacity: 1;
+    color: #cb2b1f; }
+  .nav a:nth-child(2).as {
+    background: white;
+    opacity: 1;
+    color: #cb2b1f; }
+
+.main {
+  height: 1.66rem;
+  display: flex;
+  background: white; }
+  .main li {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 13px; }
+    .main li a:nth-child(2) {
+      font-size: 17px;
+      color: black; }
+
+.ads {
+  width: 100%;
+  height: 1.66rem;
+  background: white; }
+  .ads div {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 auto;
+    border-top: 0.01rem solid #f7f7f7;
+    border-bottom: 0.01rem solid #f7f7f7; }
+    .ads div p {
+      font-size: 13px; }
+    .ads div h3 {
+      color: black; }
+
+.btn {
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  height: .84rem;
+  background: #cb2b1f;
+  color: white;
+  border: none;
+  outline: none;
+  margin-top: .3rem;
+  font-size: 12px;
+  border-radius: .1rem; }
+
+.line {
+  height: .77rem;
+  border: 0.01rem solid #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: .15rem 0; }
+  .line a {
+    display: block;
+    height: .3rem; }
+    .line a img {
+      width: 1.75rem;
+      height: 100%; }
+  .line a {
+    font-size: 12px; }
+
+.num {
+  height: 2.12rem;
+  border: .2rem solid #fafafa;
+  border-left: none;
+  border-right: none;
+  display: flex;
+  padding: .2rem 0;
+  justify-content: space-between; }
+  .num a {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    line-height: 0.5rem;
+    color: black; }
+    .num a i {
+      display: black;
+      width: 1rem;
+      height: 1rem;
+      line-height: 1rem;
+      text-align: center;
+      margin: 0 auto;
+      border-radius: 50%;
+      color: white; }
+
+.item dl {
+  margin-top: .15rem;
+  border-bottom: 0.01rem solid #fafafa; }
+  .item dl dt {
+    height: 3.3rem; }
+    .item dl dt img {
+      display: black;
+      width: 100%;
+      height: 100%; }
+  .item dl dd {
+    height: .65rem;
+    line-height: .65rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px; }
+    .item dl dd a {
+      color: black; }
+
+/*# sourceMappingURL=style.css.map */

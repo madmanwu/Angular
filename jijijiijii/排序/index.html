@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-controller="main">
+    <div class="search">
+        <input type="text">
+        <button class="btn">Search</button>
+    </div>
+    <div class="connect">
+        <p>
+            <span ng-click="col='chan';desc=!desc">产品编号<i class="list"></i></span>
+            <span ng-click="col='name';desc=!desc">产品名称<i class="list"></i></span>
+            <span ng-click="col='money';desc=!desc">产品价钱<i class="list" ></i></span>
+        </p>
+        <p  ng-repeat="item in data|orderBy:col:desc">
+                <!-- <span>{{$index + 1}}</span>  -->
+            <span ng-bind="item.chan"></span>
+            <span ng-bind="item.name"></span>
+            <span ng-bind="item.money"></span>
+        </p>>
+    </div>
+</body>
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript">
+
+    angular.module('app', [])
+    .controller('main', ['$scope', function($scope){
+        $scope.col = 'name';//默认按name列排序
+        $scope.desc = 0;//默认排序条件升序
+        $scope.data =  [
+            {
+                chan: '555',
+                name: 'iphone5',
+                money: '(mb)5.000.00'
+            },{
+                chan: '444',
+                name: 'iphone4',
+                money: '(mb)4.000.00'
+            },{
+                chan: '333',
+                name: 'iphone3',
+                money: '(mb)3.000.00'
+            },{
+                chan: '222',
+                name: 'iphone2',
+                money: '(mb)2.000.00'
+            },{
+                chan: '111',
+                name: 'iphone1',
+                money: '(mb)1.000.00'
+            },
+        ]
+        $scope.fn = function(value){
+            $scope.value = value;
+        }
+    }]);
+</script>
+</html>

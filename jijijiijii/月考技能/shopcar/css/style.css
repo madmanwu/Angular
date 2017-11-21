@@ -1,0 +1,317 @@
+body {
+  font-size: 0.12rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0.05rem;
+  padding-right: 0.05rem;
+  align-items: center;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  color: #fff; }
+  header .num {
+    color: #fff;
+    text-align: center;
+    width: 0.22rem;
+    line-height: 0.22rem;
+    background: rgba(126, 129, 126, 0.3);
+    font-size: 0.14rem; }
+  header .title {
+    font-size: 0.16rem; }
+
+section {
+  flex: 1;
+  overflow-y: auto; }
+  section .banner {
+    height: 2.26rem; }
+    section .banner img {
+      width: 100%;
+      height: 2.26rem; }
+  section .title {
+    margin-top: 0.11rem;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0.11rem;
+    padding-right: 0.11rem; }
+    section .title .left .left {
+      color: red;
+      font-size: 0.14rem; }
+    section .title .left .right {
+      font-size: 0.1rem; }
+  section .write {
+    padding-top: 0.08rem;
+    padding-left: 0.11rem;
+    padding-right: 0.11rem; }
+  section .info {
+    padding-top: 0.08rem;
+    padding-left: 0.11rem;
+    padding-right: 0.11rem; }
+  section .con {
+    display: flex;
+    padding-top: 0.08rem;
+    padding-left: 0.11rem;
+    padding-right: 0.11rem;
+    justify-content: space-between;
+    align-items: center; }
+    section .con .left span {
+      margin-right: 0.05rem;
+      width: 0.14rem;
+      text-align: center;
+      display: inline-block;
+      background: red;
+      color: #fff; }
+    section .con i {
+      font-size: 0.16rem; }
+  section .msg {
+    height: 0.56rem;
+    background: #fff5fb; }
+    section .msg p {
+      color: #858285;
+      font-size: 0.1rem; }
+      section .msg p i {
+        font-size: 0.1rem; }
+    section .msg .pinpai {
+      height: 0.3rem;
+      line-height: 0.3rem;
+      padding-left: 0.08rem; }
+      section .msg .pinpai span {
+        display: inline-block;
+        height: 0.16rem;
+        width: 0.16rem;
+        border-radius: 50%;
+        background: #f865a8;
+        text-align: center;
+        line-height: 0.16rem;
+        margin-right: 0.05rem; }
+        section .msg .pinpai span i {
+          color: #ffffff; }
+      section .msg .pinpai b {
+        color: #f85aa2;
+        font-size: 0.13rem;
+        margin-right: 0.03rem; }
+    section .msg .baozhen {
+      height: 0.26rem;
+      line-height: 0.26rem;
+      position: relative; }
+      section .msg .baozhen i {
+        color: #f181b8;
+        margin-right: 0.04rem;
+        margin-left: 0.08rem; }
+      section .msg .baozhen .fa-angle-right {
+        position: absolute;
+        right: 0.1rem;
+        top: 0.1rem;
+        color: #7f807f; }
+  section .mid {
+    margin-top: 0.07rem;
+    margin-bottom: 0.07rem;
+    background: #ffffff; }
+    section .mid .top {
+      display: block;
+      height: 0.31rem;
+      line-height: 0.31rem;
+      position: relative;
+      border-bottom: 1px solid #fbfbfb;
+      padding-left: 0.1rem;
+      font-size: 0.1rem;
+      color: #2d2d2d; }
+      section .mid .top span {
+        position: absolute;
+        right: 0.14rem;
+        top: 0rem;
+        color: #c5c5c5;
+        font-size: 0.1rem; }
+        section .mid .top span i {
+          color: #808080;
+          padding-left: 0.05rem; }
+    section .mid .person li {
+      border-bottom: 1px solid #fbfbfb;
+      display: flex; }
+      section .mid .person li .left {
+        flex: 1.5;
+        padding: 0.04rem 0.08rem; }
+        section .mid .person li .left img {
+          width: 100%; }
+      section .mid .person li .cen {
+        flex: 6.2;
+        padding-top: 0.1rem; }
+        section .mid .person li .cen p {
+          font-size: 0.11rem;
+          line-height: 0.2rem;
+          color: #353535; }
+        section .mid .person li .cen span {
+          color: #818385;
+          font-size: 0.1rem; }
+      section .mid .person li .right {
+        flex: 2.3;
+        text-align: center;
+        padding-top: 0.1rem; }
+        section .mid .person li .right span {
+          display: inline-block;
+          width: 0.55rem;
+          height: 0.22rem;
+          border: 1px solid #ecd3d1;
+          border-radius: 5px;
+          font-size: 0.12rem;
+          line-height: 0.22rem;
+          color: #de453d; }
+  section .goods {
+    background: #ffffff; }
+    section .goods .nav {
+      display: block;
+      height: 0.31rem;
+      line-height: 0.31rem;
+      position: relative;
+      border-bottom: 1px solid #fbfbfb;
+      padding-left: 0.1rem;
+      font-size: 0.1rem;
+      color: #2d2d2d; }
+      section .goods .nav span {
+        position: absolute;
+        right: 0.14rem;
+        top: 0rem;
+        color: #c5c5c5;
+        font-size: 0.1rem; }
+        section .goods .nav span i {
+          color: #808080;
+          padding-left: 0.05rem; }
+    section .goods .comment li {
+      padding-left: 0.08rem;
+      padding-right: 0.08rem; }
+      section .goods .comment li .tops {
+        position: relative;
+        height: 0.28rem;
+        line-height: 0.28rem; }
+        section .goods .comment li .tops b {
+          font-size: 0.11rem;
+          color: #626262;
+          margin-left: 0.05rem; }
+          section .goods .comment li .tops b span {
+            position: absolute;
+            right: 0.1rem;
+            color: #a5a5a5;
+            font-size: 0.1rem; }
+      section .goods .comment li .comm {
+        font-size: 0.11rem;
+        color: #969697; }
+        section .goods .comment li .comm span {
+          font-size: 0.1rem;
+          color: #bfbfbf; }
+  section .spans {
+    height: 0.4rem; }
+    section .spans span {
+      display: inline-block;
+      padding: 0.06rem 0.07rem;
+      background: #fceae8;
+      border-radius: 5px;
+      margin-left: 2%;
+      color: #727071;
+      font-size: 0.1rem; }
+  section .area {
+    position: relative;
+    text-align: center;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #f3f3f3;
+    padding-bottom: 0.15rem; }
+    section .area .gsp {
+      height: 0.7rem;
+      text-align: left;
+      padding-left: 0.08rem;
+      overflow: hidden;
+      transition: all 1s; }
+      section .area .gsp span {
+        margin-top: 0.08rem; }
+    section .area .topa {
+      height: 1rem; }
+  section #btn {
+    position: absolute;
+    bottom: 0.02rem;
+    color: #979797;
+    color: red; }
+  section #gooslist li {
+    padding-left: 0.08rem;
+    padding-right: 0.08rem; }
+    section #gooslist li .tops {
+      position: relative;
+      height: 0.28rem;
+      line-height: 0.28rem; }
+      section #gooslist li .tops b {
+        font-size: 0.11rem;
+        color: #626262;
+        margin-left: 0.05rem; }
+      section #gooslist li .tops span {
+        position: absolute;
+        right: 0.1rem;
+        color: #a5a5a5;
+        font-size: 0.1rem; }
+    section #gooslist li .comm {
+      font-size: 0.11rem;
+      color: #969697; }
+    section #gooslist li span {
+      font-size: 0.1rem;
+      color: #bfbfbf; }
+
+.gsec {
+  background: #ffffff; }
+
+footer {
+  height: 0.45rem;
+  background: #ffffff;
+  display: flex; }
+  footer .foot-l {
+    flex: 3.5;
+    display: flex; }
+    footer .foot-l li {
+      flex: 1;
+      text-align: center;
+      border-right: 1px solid #fbfbfb; }
+      footer .foot-l li i {
+        color: #ababab;
+        padding-top: 0.07rem; }
+      footer .foot-l li p {
+        color: #939495;
+        padding-top: 0.03rem;
+        font-size: 0.1rem; }
+    footer .foot-l .active i {
+      color: #da5049; }
+  footer .foot-m {
+    flex: 2.5;
+    background: #f2aba7;
+    padding-top: 0.06rem; }
+    footer .foot-m p {
+      line-height: 0.18rem;
+      text-align: center;
+      color: #fbf7f6;
+      font-size: 0.1rem; }
+  footer .foot-r {
+    flex: 4;
+    background: #e02e24;
+    padding-top: 0.06rem; }
+    footer .foot-r p {
+      line-height: 0.18rem;
+      text-align: center;
+      color: #fbf7f6;
+      font-size: 0.1rem; }
+
+.dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0.9rem;
+  height: 0.36rem;
+  background: #333333;
+  line-height: 0.36rem;
+  text-align: center;
+  color: #ffffff; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,50 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+.box{
+    width: 800px;
+    height: 450px;
+    margin: 50px auto;
+    border: 1px solid red;
+}
+.top{
+    height: 50px;
+    padding-top: 10px;
+}
+.top span{
+    padding: 0 10px;
+}
+.top input{
+    width: 100px;
+    outline: none;
+}
+.top button{
+    padding: 5px 10px;
+    outline: none;
+}
+.tab{
+    width: 100%;
+    border-collapse: collapse;
+}
+.tab tr{
+    border-bottom: 1px solid red
+}
+.tit{
+    line-height: 30px;
+    background: #CCCCCC;
+}
+.tit td{
+    flex: 1;
+    text-align: center;
+}
+.content{
+    background: #fff;
+    line-height: 40px;
+}
+.change a{
+    padding: 0 10px;
+}

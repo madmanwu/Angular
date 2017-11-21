@@ -1,0 +1,199 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+body {
+  font-size: .12rem;
+  position: relative;
+  overflow: hidden; }
+
+header {
+  height: .36rem;
+  line-height: .36rem;
+  background: #1b1b1f;
+  position: relative;
+  color: #ffffff; }
+  header .left {
+    position: absolute;
+    left: 0.1rem;
+    top: 0rem; }
+  header .right {
+    position: absolute;
+    right: 0.1rem;
+    top: 0rem;
+    line-height: .4rem; }
+  header .tit {
+    text-align: center;
+    font-size: .15rem; }
+
+section {
+  flex: 1;
+  background: #fafafa; }
+  section .top {
+    height: .4rem;
+    display: flex;
+    line-height: .4rem;
+    text-align: center;
+    background: #fafafa; }
+    section .top .loc {
+      flex: 2.5;
+      color: #555555; }
+      section .top .loc select {
+        outline: none;
+        border-width: 0; }
+    section .top .search {
+      flex: 5; }
+      section .top .search input {
+        width: 100%;
+        height: .22rem;
+        border: 1px solid #efefef;
+        padding-left: .1rem; }
+      section .top .search ::-webkit-input-placeholder {
+        font-size: .1rem;
+        color: #aaaaaa;
+        text-align: center; }
+    section .top .info {
+      flex: 2.5;
+      color: #1d1d1d; }
+      section .top .info i {
+        padding-right: .08rem; }
+  section .banner {
+    width: 100%; }
+    section .banner img {
+      width: 100%; }
+  section .msg {
+    height: .14rem;
+    line-height: .14rem;
+    background: #ffffff;
+    margin-top: .03rem;
+    margin-bottom: .07rem;
+    position: relative; }
+    section .msg > i {
+      position: absolute;
+      color: #9d9d9d;
+      right: .1rem; }
+    section .msg span {
+      font-size: .1rem;
+      color: #bebebe; }
+      section .msg span i {
+        color: #ffbb4c;
+        padding: 0 .03rem; }
+  section .list {
+    height: .37rem;
+    line-height: .37rem;
+    text-align: center;
+    color: #000000;
+    font-size: .14rem;
+    background: #ffffff; }
+    section .list i {
+      color: #444444;
+      padding-left: .05rem; }
+  section .bottom {
+    display: flex;
+    padding-left: .15rem;
+    padding-right: .15rem; }
+    section .bottom dt {
+      flex: 1;
+      margin-right: 2%; }
+      section .bottom dt img {
+        width: 100%; }
+    section .bottom dd {
+      flex: 1;
+      margin-left: 2%; }
+      section .bottom dd img {
+        width: 100%; }
+  section .wrap {
+    display: flex; }
+    section .wrap .left {
+      width: 20%;
+      border-left: 1px solid #f1f1f1; }
+      section .wrap .left li {
+        height: .45rem;
+        line-height: .45rem;
+        color: #b2b2b2;
+        font-size: .1rem;
+        text-align: center; }
+      section .wrap .left .active {
+        color: #4e4e4e;
+        font-size: .11rem; }
+    section .wrap .right {
+      width: 80%; }
+      section .wrap .right li {
+        margin-bottom: .08rem; }
+        section .wrap .right li img {
+          width: 100%; }
+
+footer {
+  height: .41rem;
+  background: #ffffff;
+  border-top: 1px solid #f1f1f1; }
+  footer ul {
+    display: flex; }
+    footer ul li {
+      flex: 1;
+      text-align: center; }
+      footer ul li i {
+        color: #838383;
+        padding-top: .03rem; }
+      footer ul li p {
+        color: #b6b6b6;
+        font-size: .1rem;
+        padding-top: .03rem; }
+    footer ul .active i {
+      color: #ff5541; }
+    footer ul .active p {
+      color: #ff7362; }
+
+.searchbox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 100%;
+  z-index: 111;
+  background: #ffffff;
+  transition: all 1s; }
+  .searchbox .top {
+    display: flex;
+    height: .4rem;
+    padding-top: .1rem; }
+    .searchbox .top .left {
+      flex: 8.5;
+      padding-left: .08rem;
+      padding-right: .08rem; }
+      .searchbox .top .left input {
+        height: .22rem;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #515151;
+        padding-left: .1rem; }
+      .searchbox .top .left ::-webkit-input-placeholder {
+        font-size: .1rem;
+        color: #aaaaaa; }
+    .searchbox .top .right {
+      flex: 1.5;
+      color: #3e3e3e;
+      text-align: center; }
+  .searchbox .remen {
+    height: .5rem;
+    line-height: .5rem;
+    color: #000000;
+    font-size: .15rem;
+    padding-left: .15rem; }
+  .searchbox .message {
+    padding: 0 .2rem; }
+    .searchbox .message span {
+      display: inline-block;
+      padding: .05rem .1rem;
+      background: #ebeaed;
+      border-radius: 15px;
+      color: #8a8a8b;
+      font-size: .11rem;
+      margin: .04rem .02rem; }
+
+.tops {
+  top: 36px; }
+
+/*# sourceMappingURL=style.css.map */

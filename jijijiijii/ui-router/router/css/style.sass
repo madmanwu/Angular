@@ -1,0 +1,68 @@
+body
+  font-size: 0.12rem
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 100%
+  display: flex
+  flex-direction: column
+header
+  text-align: center
+  border-bottom: 0.01rem solid #CCc
+  i
+    position: absolute
+    left: 0.11rem
+    top: 0.11rem
+    color: blue
+  span
+    display: inline-block
+    padding-top: 0.11rem
+    padding-bottom: 0.11rem
+section
+  flex: 1
+  overflow-y: auto
+  .list
+    display: flex
+    justify-content: space-around
+    li
+      padding-top: 0.11rem
+      padding-bottom: 0.11rem
+      color: #CCC
+    .active
+      color: blue
+      border-bottom: 0.01rem solid blue
+  .line
+    height: 0.03rem
+    background: #CCCCCC
+    border-top: 0.01rem solid #999
+    border-bottom: 0.01rem solid #999
+  .box
+    div
+      display: flex
+      justify-content: space-between
+      border-bottom: 0.01rem solid #ccc
+      padding-left: 0.11rem
+      padding-right: 0.11rem
+      .left
+        padding-top: 0.08rem
+        padding-bottom: 0.08rem
+        display: flex
+        align-items: center
+        p:first-child
+          width: 0.4rem
+          text-align: center
+          color: #fff
+          line-height: 0.4rem
+          background: green
+          border-radius: 50%
+        p:last-child
+          display: flex
+          flex-direction: column
+          padding-left: 0.05rem
+      .right
+        display: flex
+        text-align: right
+        justify-content: center
+        flex-direction: column
+        p:first-child
+          color: lawngreen

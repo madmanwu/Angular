@@ -1,0 +1,104 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="main">
+<div class="box">
+    <div class="top">
+        登录名 <input type="text" ng-model="name"/>
+        真实姓名 <input type="text" ng-model="sure"/>
+        状态 <input type="text" ng-model="tai"/>
+        公司名称 <input type="text" ng-model="factory"/>
+        <button class="btn" ng-click="action(filter)">查询</button>
+    </div>
+    <table>
+        <thead>
+            <td>选择</td>
+            <td>登录名</td>
+            <td>真实姓名</td>
+            <td>状态</td>
+            <td>公司名称</td>
+            <td>操作</td>
+        </thead>
+        <tbody>
+        <tr  class="content" ng-repeat="item in data.value|filter:(name&&sure&&tai&&factory)">
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>{{item.name}}</td>
+                <td>{{item.sure}}</td>
+                <td>{{item.tai}}</td>
+                <td>{{item.factory}}</td>
+                <td>
+                    <button del>删除</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="change">
+        <a href="javascript:;" ng-click="all()">全选</a>/<a href="javascript:;" ng-click="fan()">反选</a>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+    angular.module('app', [])
+            .controller('main', ['$scope', 'http', function($scope, http){
+                $scope.data = http.getDate();
+
+                $scope.action = function(filter){
+                    $scope.value=filter;
+                }
+                $scope.all=function(){
+                    var input=angular.element(document.querySelectorAll(".content input"));
+                    var len=input.length;
+                    for(var i=0;i<len;i++){
+                        if(!input[i].checked){
+                            input[i].checked=true;
+                        }
+                    }
+                }
+                $scope.fan=function(){
+                    var input=angular.element(document.querySelectorAll(".content input"));
+                    var len=input.length;
+                    for(var i=0;i<len;i++){
+                        if(input[i].checked){
+                            input[i].checked=false;
+                        }else{
+                            input[i].checked=true;
+                        }
+                    }
+                }
+            }])
+
+            .service("http",function($http,$q){
+                var defer=$q.defer();
+                this.getDate=function(){
+                    $http({
+                        url:"http://localhost:8088"
+                    }).then(function(result){
+                        defer.resolve(result.data)
+                    },function(err){
+                        defer.reject(err);
+                    })
+                    return defer.promise.$$state;
+                }
+            })
+
+            .directive('del', function(){
+                return {
+                    restrict:"ECMA",
+                    link:function(scope,ele,attr){
+                        ele.on("click",function(){
+                            $(this).parents("tr").remove();
+                        })
+                    }
+                }
+            })
+</script>
+</html>

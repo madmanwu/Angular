@@ -1,0 +1,91 @@
+html, body {
+  width: 100%;
+  height: 100%; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font-size: .12rem; }
+
+.box {
+  width: 100%;
+  padding: .12rem .15rem; }
+  .box h4 {
+    color: #b8b8b8;
+    line-height: .25rem; }
+  .box .info {
+    height: .9rem;
+    border: 1px solid #e7e6e5;
+    border-radius: 10px;
+    margin-top: .1rem;
+    display: flex;
+    font-size: .1rem; }
+    .box .info .left {
+      width: 80%;
+      padding-top: .1rem;
+      padding-left: .15rem; }
+      .box .info .left p {
+        line-height: .25rem;
+        color: #5a5a5a; }
+    .box .info .right {
+      width: 20%;
+      text-align: center;
+      line-height: .9rem;
+      color: #b7b7b7;
+      position: relative; }
+      .box .info .right span {
+        padding-left: .1rem; }
+      .box .info .right .dialog {
+        position: absolute;
+        width: 2rem;
+        height: .9rem;
+        line-height: .3rem;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        bottom: -.3rem;
+        right: 0rem;
+        padding-top: .1rem;
+        padding-left: .1rem;
+        background: skyblue;
+        z-index: 9;
+        display: none; }
+      .box .info .right .show {
+        display: block; }
+      .box .info .right .hide {
+        display: none; }
+  .box .btn {
+    width: 1.35rem;
+    height: .35rem;
+    background: #bfbfbf;
+    border-radius: 20px;
+    margin-top: .1rem;
+    line-height: .35rem;
+    text-align: center;
+    color: #f1f1f1; }
+  .box .list {
+    padding-left: .35rem;
+    margin-top: .1rem; }
+    .box .list li {
+      height: .3rem;
+      border-left: 1px solid #bfbfbf;
+      font-size: .1rem;
+      color: #818181;
+      padding-left: .15rem;
+      position: relative; }
+      .box .list li b {
+        position: absolute;
+        width: .1rem;
+        height: .1rem;
+        background: #bfbfbf;
+        border-radius: 50%;
+        left: -.05rem;
+        top: .05rem; }
+    .box .list li:nth-child(2) {
+      line-height: .2rem; }
+    .box .list .lis {
+      border-left-color: #3ecf6e; }
+      .box .list .lis b {
+        background: #33cc66; }
+
+/*# sourceMappingURL=style.css.map */
